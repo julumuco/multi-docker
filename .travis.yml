@@ -14,9 +14,10 @@ after_success:
     - docker build -t jldocker954/multi-server ./server
     - docker build -t jldocker954/multi-worker ./worker
     # login in to the docker CLI
-    echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID"  --password-stdin
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     # take those images and push them to docker hub
     - docker push jldocker954/multi-client
     - docker push jldocker954/multi-nginx 
     - docker push jldocker954/multi-server
     - docker push jldocker954/multi-worker 
+    
